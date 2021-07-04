@@ -47,10 +47,9 @@ class PlayScreenViewModel extends ChangeNotifier {
   // on admob rewarded
   void onRewardedFromAd() {
     final _dbProvider = Provider.of<DatabaseProvider>(context, listen: false);
-    final _levelProvider = Provider.of<LevelProvider>(context, listen: false);
 
     _dbProvider.updateUserInfo(hint: true);
-    ShowDialogs(context: context).showHintDialog(_levelProvider.level);
+    ShowDialogs(context: context).showHintDialog(level);
     adProvider.updateIsRewardedLoaded(false);
     adProvider.loadRewardedAd();
   }
