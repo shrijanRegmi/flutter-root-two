@@ -18,13 +18,13 @@ class AdProvider extends ChangeNotifier {
   bool get isRewardedLoaded => _isRewardedLoaded;
   int get bannerTries => _bannerTries;
 
-  String get bannerId => 'ca-app-pub-3940256099942544/6300978111'; // test ad
-  // String get bannerId => 'ca-app-pub-1736091010557588/7791611250';
-  String get interstitialId =>
-      'ca-app-pub-3940256099942544/1033173712'; // test ad
-  // String get interstitialId => 'ca-app-pub-1736091010557588/6286957898';
-  String get rewardedId => 'ca-app-pub-3940256099942544/5224354917'; // test ad
-  // String get rewardedId => 'ca-app-pub-1736091010557588/8763279120';
+  // String get bannerId => 'ca-app-pub-3940256099942544/6300978111'; // test ad
+  String get bannerId => 'ca-app-pub-1736091010557588/7791611250';
+  // String get interstitialId =>
+  // 'ca-app-pub-3940256099942544/1033173712'; // test ad
+  String get interstitialId => 'ca-app-pub-1736091010557588/6286957898';
+  // String get rewardedId => 'ca-app-pub-3940256099942544/5224354917'; // test ad
+  String get rewardedId => 'ca-app-pub-1736091010557588/8763279120';
 
   // on dispose
   void onDispose() {
