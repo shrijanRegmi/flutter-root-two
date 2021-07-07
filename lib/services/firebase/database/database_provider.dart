@@ -7,6 +7,8 @@ class DatabaseProvider {
   DatabaseProvider({this.uid});
 
   final _ref = FirebaseFirestore.instance;
+  static final _now = DateTime.now();
+  final _currentDate = DateTime(_now.year, _now.month, _now.day);
 
   // send user details
   Future sendUserDetails({
@@ -18,6 +20,8 @@ class DatabaseProvider {
         'uid': uid,
         'name': name,
         'email': email,
+        'light_bulbs': 5,
+        'light_bulb_refills_at': _currentDate.add(Duration(days: 1)),
       };
 
       await _ref.collection('users').doc(uid).set(_data);
@@ -35,6 +39,7 @@ class DatabaseProvider {
     final int level,
     final int points,
     final int lightBulbs,
+    final int lightBulbRefillsAt,
     final bool hint,
     final bool solution,
   }) async {
@@ -43,6 +48,7 @@ class DatabaseProvider {
         'level': level,
         'points': points,
         'light_bulbs': lightBulbs,
+        'light_bulb_refills_at': lightBulbRefillsAt,
         'hint': hint,
         'solution': solution,
       };
@@ -69,6 +75,7 @@ class DatabaseProvider {
       lightBulbs: ds.data()['light_bulbs'] ?? 5,
       hint: ds.data()['hint'] ?? false,
       solution: ds.data()['solution'] ?? false,
+      lightBulbRefillsAt: ds.data()['light_bulb_refills_at'],
     );
   }
 
@@ -82,7 +89,6 @@ class DatabaseProvider {
         userEmail: ds.data()['email'] ?? '',
         level: ds.data()['level'] ?? 1,
         points: ds.data()['points'] ?? 0,
-        lightBulbs: ds.data()['light_bulbs'] ?? 0,
       );
     }).toList();
   }

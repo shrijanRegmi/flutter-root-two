@@ -32,6 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         : ViewModelProvider<HomeViewModel>(
             viewModel: HomeViewModel(context: context),
+            onInit: (vm) {
+              vm.onInit(_user);
+            },
             builder: (HomeViewModel vm) {
               return Scaffold(
                 backgroundColor: Color(0xfff3f3f3),
