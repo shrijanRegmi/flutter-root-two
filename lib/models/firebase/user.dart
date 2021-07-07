@@ -5,6 +5,7 @@ class AppUser {
   final int level;
   final int points;
   final int lightBulbs;
+  final int lightBulbRefillsAt;
   final bool hint;
   final bool solution;
 
@@ -15,6 +16,7 @@ class AppUser {
     this.level,
     this.points,
     this.lightBulbs,
+    this.lightBulbRefillsAt,
     this.hint,
     this.solution,
   });
