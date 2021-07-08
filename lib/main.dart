@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
               ),
             ],
             child: WrapperBuilder(
-              builder: () => MyMaterialApp(),
+              builder: (appUser) => MyMaterialApp(appUser),
             ),
           );
         return Container();
@@ -53,6 +53,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyMaterialApp extends StatelessWidget {
+  final AppUser appUser;
+  MyMaterialApp(this.appUser);
+
   @override
   Widget build(BuildContext context) {
     final _adProvider = Provider.of<AdProvider>(context);
@@ -83,7 +86,7 @@ class MyMaterialApp extends StatelessWidget {
                     fontFamily: 'Nunito',
                     visualDensity: VisualDensity.adaptivePlatformDensity,
                   ),
-                  home: Wrapper(),
+                  home: Wrapper(appUser),
                 ),
               ),
               (_adProvider?.isBannerLoaded ?? false)

@@ -61,6 +61,9 @@ class AuthProvider {
 
         if (_result != null) {
           final _firebaseUser = _result.user;
+
+          _userFromFirebase(_firebaseUser);
+
           final _userRef = _ref.collection('users').doc(_firebaseUser.uid);
           final _userSnap = await _userRef.get();
 
