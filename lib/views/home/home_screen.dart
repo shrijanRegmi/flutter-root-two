@@ -4,7 +4,6 @@ import 'package:root_two/models/app/options.dart';
 import 'package:root_two/models/app/questions.dart';
 import 'package:root_two/models/firebase/user.dart';
 import 'package:root_two/services/app/level_provider.dart';
-import 'package:root_two/services/app/save_data.dart';
 import 'package:root_two/viewmodels/home_vm.dart';
 import 'package:root_two/viewmodels/vm_provider.dart';
 import 'package:root_two/views/widgets/drawer.dart';
@@ -218,7 +217,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _optionsList(HomeViewModel vm, BuildContext context) {
     final _levelProvider = Provider.of<LevelProvider>(context);
-    final _saveData = Provider.of<SaveData>(context);
     final _user = Provider.of<AppUser>(context);
     return Container(
       height: 250.0,
@@ -236,7 +234,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     optionsList[index],
                     _levelProvider,
                     _user,
-                    _saveData,
                   );
                 },
                 child: OptionsItem(optionsList[index]),
@@ -251,7 +248,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   optionsList[index],
                   _levelProvider,
                   _user,
-                  _saveData,
                 );
               },
               child: OptionsItem(optionsList[index]),

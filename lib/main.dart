@@ -5,7 +5,6 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:root_two/models/firebase/user.dart';
 import 'package:root_two/services/app/ad_provider.dart';
 import 'package:root_two/services/app/level_provider.dart';
-import 'package:root_two/services/app/save_data.dart';
 import 'package:root_two/services/firebase/auth/auth_provider.dart';
 import 'package:root_two/viewmodels/vm_provider.dart';
 import 'package:root_two/wrapper.dart';
@@ -34,9 +33,6 @@ class MyApp extends StatelessWidget {
             providers: [
               ChangeNotifierProvider<LevelProvider>(
                 create: (_) => LevelProvider(),
-              ),
-              ChangeNotifierProvider<SaveData>(
-                create: (_) => SaveData(),
               ),
               ChangeNotifierProvider<AdProvider>(
                 create: (_) => AdProvider(),

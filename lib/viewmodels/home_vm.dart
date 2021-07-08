@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:root_two/models/app/options.dart';
 import 'package:root_two/models/firebase/user.dart';
 import 'package:root_two/services/app/level_provider.dart';
-import 'package:root_two/services/app/save_data.dart';
 import 'package:root_two/services/firebase/database/database_provider.dart';
 import 'package:root_two/views/home/leaderboard_screen.dart';
 import 'package:root_two/views/home/level_screen.dart';
@@ -55,7 +54,6 @@ class HomeViewModel extends ChangeNotifier {
     Options _options,
     LevelProvider _levelProvider,
     AppUser _user,
-    SaveData _saveData,
   ) {
     switch (_options.title) {
       case "Quick Play":
