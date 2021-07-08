@@ -4,13 +4,13 @@ import 'package:root_two/services/firebase/database/database_provider.dart';
 import 'package:provider/provider.dart';
 
 class WrapperBuilder extends StatelessWidget {
-  final Widget Function() builder;
+  final Widget Function(AppUser) builder;
   WrapperBuilder({@required this.builder});
 
   @override
   Widget build(BuildContext context) {
     final _user = Provider.of<AppUser>(context);
-    // print(_user.userName);
+
     if (_user != null) {
       return MultiProvider(
         providers: [
@@ -30,9 +30,9 @@ class WrapperBuilder extends StatelessWidget {
             ),
           ),
         ],
-        child: builder(),
+        child: builder(_user),
       );
     }
-    return builder();
+    return builder(_user);
   }
 }
