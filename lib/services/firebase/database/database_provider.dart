@@ -21,7 +21,8 @@ class DatabaseProvider {
         'name': name,
         'email': email,
         'light_bulbs': 5,
-        'light_bulb_refills_at': _currentDate.add(Duration(days: 1)),
+        'light_bulb_refills_at':
+            _currentDate.add(Duration(days: 1)).millisecondsSinceEpoch,
       };
 
       await _ref.collection('users').doc(uid).set(_data);
@@ -95,7 +96,16 @@ class DatabaseProvider {
 
   // stream of users
   Stream<AppUser> get userDetail {
-    return _ref.collection('users').doc(uid).snapshots().map(_userFromFirebase);
+    try {
+      return _ref
+          .collection('users')
+          .doc(uid)
+          .snapshots()
+          .map(_userFromFirebase);
+    } catch (e) {
+      print(e);
+      return null;
+    }
   }
 
   Stream<List<AppUser>> get topPlayerList {
